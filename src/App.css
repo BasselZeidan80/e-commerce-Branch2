@@ -6,6 +6,12 @@ a {
   text-decoration: none;
 }
 
+
+img {
+  object-fit: cover;
+}
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -1,0 +1,18 @@
+.product {
+    /* background-color: #652467a9;
+    border: 1px solid #00000032; */
+    height: 470px;
+
+    overflow: hidden;
+    padding: 10px;
+}
+
+.textCutomize {
+    /* background-color: #fff; */
+    overflow: hidden;
+    height: 100px;
+}
+
+a {
+    color: #000;
+}

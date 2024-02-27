@@ -10,7 +10,6 @@ import CategorySlider from "../CategorySlide/CategorySlider";
 import { CartContext } from "../../Context/CartContext";
 import Swal from "sweetalert2";
 
-
 export default function Products() {
 
   // const [products, setProducts] = useState(null)
@@ -39,9 +38,9 @@ export default function Products() {
 
  const {isError , isLoading , isFetching , data}=useQuery('getAllProducts' ,getProducts)
 
- console.log(isError , "iserror");
- console.log(isLoading , "isLoading");
- console.log(isFetching , "isFetching");
+//  console.log(isError , "iserror");
+//  console.log(isLoading , "isLoading");
+//  console.log(isFetching , "isFetching");
 //  console.log(data, "data");
  
 
@@ -99,11 +98,13 @@ if(isLoading){
         {data.data.data.map(  (product , idx) =>   <div key={idx} className=" col-sm-12 col-md-6 col-lg-2 mb-3 cstom">
           <div  className="product"  >
           <Link to={`/ProductDetails/${product.id}`}>
-          <figure >
+          <figure className="image" >
             <img className="w-100" src={product.imageCover} alt={product.title}/>
           </figure>
+          <div className="textCutomize">
           <h6 className="text-success">{product.category.name}</h6>
           <p>{product.description.split(' ').slice(0,2).join(' ')}</p>
+            </div>
             </Link>
           <div className="priceArea p-1 d-flex align-items-center justify-content-between">
 

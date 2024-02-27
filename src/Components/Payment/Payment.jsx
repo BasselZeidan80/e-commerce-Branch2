@@ -164,10 +164,14 @@ export default function Payment() {
             ""
           )}
 
+
+
+<div className="d-flex align-items-center justify-content-evenly ">
+
           <button
             type="submit"
             onClick={() => confirmCashPayment}
-            className="btn btn-primary"
+            className="btn btn-primary btnConfirm"
           >
             Confirm Cash Payment
           </button>
@@ -175,10 +179,12 @@ export default function Payment() {
           <button
             type="submit"
             onClick={  confirmOnlinePayment}
-            className="btn btn-primary"
+            className="btn btn-primary btnConfirm"
           >
             Confirm Online Payment
           </button>
+          </div>
+
         </form>
       </div>
     </>
