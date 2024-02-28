@@ -1,0 +1,25 @@
+.order {
+    background-color: tomato;
+    border-bottom: 1px solid #00000048;
+}
+
+.imageCst {
+    width: 200px;
+
+}
+
+img {
+    object-fit: cover;
+}
+
+.card {
+    /* width: 50%; */
+    height: 450px;
+    padding: 20px;
+}
+
+.design {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

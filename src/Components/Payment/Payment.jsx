@@ -11,7 +11,7 @@ const mySchema = Yup.object({
   city: Yup.string().required("name must be req!").min(3).max(20),
   phone: Yup.string()
     .required("Phone must be formated egyptian number!")
-    .matches(/^01[0125][0-9]{8}$/),
+    // .matches(/^01[0125][0-9]{8}$/),
 });
 
 export default function Payment() {

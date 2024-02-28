@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { CartContext } from "../../Context/CartContext";
 import "./Cart.css";
 import { Circles } from "react-loader-spinner";
@@ -50,6 +50,9 @@ export default function Cart() {
       toast.error("error try again later", { position: "top-center" });
     }
   }
+
+
+
 
   async function clearMyProducts() {
     const res = await clearAllProducts();

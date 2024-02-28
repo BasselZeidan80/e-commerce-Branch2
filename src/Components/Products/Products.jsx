@@ -9,6 +9,8 @@ import HomeSlider from "../HomeSlider/HomeSlider";
 import CategorySlider from "../CategorySlide/CategorySlider";
 import { CartContext } from "../../Context/CartContext";
 import Swal from "sweetalert2";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Products() {
 
@@ -20,13 +22,19 @@ export default function Products() {
    const res= await addProductToCart(id)
    if(res=== data.data.message){
     console.log("product add successful");
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Your Product has been added To Cart",
-      showConfirmButton: false,
-      timer: 1500
-    });
+    // Swal.fire({
+    //   position: "center",
+    //   icon: "success",
+    //   title: "Your Product has been added To Cart",
+    //   showConfirmButton: false,
+    //   timer: 1500
+    // });
+
+    toast.success('Product Added To Cart Successfully !');
+
+    
+   }else{
+    toast.error('Error !');
    }
 
    }
@@ -129,7 +137,11 @@ if(isLoading){
 }
 
 
-   
+<ToastContainer
+        position="top-right"
+        theme="light"
+        style={{ width: '400px' }}
+      />
 
     </>
   );

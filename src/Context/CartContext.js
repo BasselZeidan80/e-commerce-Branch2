@@ -9,7 +9,7 @@ export default function CartContextProvider({ children }) {
   const { token } = useContext(AuthContextProvider);
   const [numOfCart, setNumOfCart] = useState(0);
   const [totalCartPrice, setTotalCartPrice] = useState(0);
-  const [allProducts, setAllProducts] = useState(null);
+  const [allProducts, setAllProducts] = useState([]);
   const [CartID, setCartID] = useState(null);
   // const [cartOwner,setCartOwner] = useState(null)
 

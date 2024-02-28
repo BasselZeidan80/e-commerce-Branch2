@@ -39,7 +39,7 @@ export default function CategorySlider() {
     // autoplaySpeed: 2000,
     // cssEase: "linear",
     // slidesToScroll: 1,
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 7,
     slidesToScroll: 1,
@@ -62,7 +62,7 @@ export default function CategorySlider() {
               src={category.image}
               alt={category.name}
             />
-            <h4>{category.name}</h4>
+            <h5 className="text-center text-bg-dark">{category.name}</h5>
           </div>
         ))}
       </Slider>

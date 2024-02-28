@@ -16,6 +16,8 @@ import CartContextProvider from "./Context/CartContext";
 import { Toaster } from "react-hot-toast";
 import Payment from "./Components/Payment/Payment";
 import AllOrders from "./Components/AllOrders/AllOrders";
+import { ToastContainer, toast } from "react-toastify";
+import { useEffect } from "react";
 
 function App() {
   const myQuery = new QueryClient();
@@ -88,6 +90,8 @@ function App() {
     },
   ]);
 
+
+  
   return (
     <div className="App">
       <QueryClientProvider client={myQuery}>
@@ -97,8 +101,8 @@ function App() {
           </CartContextProvider>
         </AuthContextPProvider>
       </QueryClientProvider>
+<Toaster />
 
-      <Toaster />
     </div>
   );
 }
