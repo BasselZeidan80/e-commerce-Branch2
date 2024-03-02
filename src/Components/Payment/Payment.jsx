@@ -15,6 +15,8 @@ const mySchema = Yup.object({
 });
 
 export default function Payment() {
+
+
   const nav = useNavigate();
   const { CartID, getUserCart ,clearAllProducts } = useContext(CartContext);
 
@@ -24,14 +26,27 @@ export default function Payment() {
     phone: "",
   };
 
+
+
+
+  function onSubmit(values){
+    console.log("submited...", values);
+  
+   
+    confirmCashPayment(values)
+  }
+
+
+
+
   const myFormik = useFormik({
     initialValues: userData,
-    onSubmit: confirmCashPayment,
+    onSubmit: onSubmit,
     validationSchema: mySchema,
     // validationSchema: mySchema,
   });
 
-  function confirmCashPayment() {
+  function confirmCashPayment(userData) {
     const shippingObj = {
       shippingAddress: {
         details: "",
@@ -43,7 +58,7 @@ export default function Payment() {
     axios
       .post(
         `https://ecommerce.routemisr.com/api/v1/orders/${CartID}`,
-        shippingObj,
+        userData,
         {
           headers: { token: localStorage.getItem("token") },
         }
@@ -73,7 +88,7 @@ export default function Payment() {
 
   // finction online payment
 
-  function confirmOnlinePayment() {
+  function confirmOnlinePayment(userData) {
     const shippingObj = {
       shippingAddress: {
         details: "",
@@ -85,7 +100,7 @@ export default function Payment() {
     axios
       .post(
         `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${CartID}`,
-        shippingObj,
+        userData,
         {
           headers: { token: localStorage.getItem("token") },
           params: {url : "http://localhost:3000"}

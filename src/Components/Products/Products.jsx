@@ -16,28 +16,32 @@ export default function Products() {
 
   // const [products, setProducts] = useState(null)
 
-   const {addProductToCart} =  useContext(CartContext)
+   const {addProductToCart , addFavoriteToWichlist} =  useContext(CartContext)
 
   async function addProduct(id){
    const res= await addProductToCart(id)
    if(res=== data.data.message){
     console.log("product add successful");
-    // Swal.fire({
-    //   position: "center",
-    //   icon: "success",
-    //   title: "Your Product has been added To Cart",
-    //   showConfirmButton: false,
-    //   timer: 1500
-    // });
-
     toast.success('Product Added To Cart Successfully !');
 
-    
    }else{
     toast.error('Error !');
    }
 
    }
+
+  async function addFavorite(id){
+  const res = await addFavoriteToWichlist(id)
+if(res=== data.data.message){
+  console.log("favorited Successfully" );
+  toast.success("Product added successfully to your wishlist!" );
+}
+else{
+    toast.error('Error !');
+}
+
+   }
+
 
   async function getProducts(){
     return await axios.get('https://ecommerce.routemisr.com/api/v1/products')
@@ -109,11 +113,17 @@ if(isLoading){
           <figure className="image" >
             <img className="w-100" src={product.imageCover} alt={product.title}/>
           </figure>
+          </Link>
+
+          <div className="HeartIcon">
+        <button onClick={()=> addFavorite(product.id)} className="btn btn-outline-danger">
+          <i class="fa-solid fa-heart"></i>
+          </button >
+          </div>
           <div className="textCutomize">
           <h6 className="text-success">{product.category.name}</h6>
           <p>{product.description.split(' ').slice(0,2).join(' ')}</p>
             </div>
-            </Link>
           <div className="priceArea p-1 d-flex align-items-center justify-content-between">
 
             {product.priceAfterDiscount? 

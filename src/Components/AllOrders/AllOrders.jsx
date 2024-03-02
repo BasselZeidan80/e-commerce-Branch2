@@ -12,6 +12,7 @@ function getUserOrder(){
     .then( (res)=>{
         console.log("res", res );
         setAllOrders(res.data)
+        
     } )
     .catch( (err)=>{
         console.log("err  ",err);
@@ -44,28 +45,9 @@ if(!AllOrders){
 
 
 
+
   return <>
-{/*   
 
-  <div className="container">
-    <div className="row">
-        {AllOrders?.map( (order , idx)=> 
-          <div key={idx} className="col-md-6">
-            <div className=" order p-2">
-
-                <h2>Order Id : {order.id}</h2>
-            <h5>Payment Method: {order.paymentMethodType}</h5>
-            <h5>Order Price: {order.totalOrderPrice}</h5>
-            <p>this order is delevireng to {order.shippingAddress.city }on Phone Number {order.shippingAddress.phone }with Details : {order.shippingAddress.details}</p>
-            <p>delevery status : {order.isDelivered?"yes" : "no"} </p>
-
-            </div>
-        </div> 
-        
-        )}
-      
-    </div>
-  </div> */}
 
 
 

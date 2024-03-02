@@ -7,7 +7,7 @@ import { CartContext } from "../../Context/CartContext";
 export default function Navbar() {
   
 const {token , setToken} = useContext(AuthContextProvider)
- const {numOfCart} =  useContext(CartContext)
+ const {numOfCart ,numOfFav} =  useContext(CartContext)
 const Navigate =useNavigate()
 function logoutFunction(){
 
@@ -65,6 +65,15 @@ function logoutFunction(){
                 </Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link position-relative" to="/Favorites">
+                  
+                  <i class=" px-1 fs-4  fa-solid fa-heart"></i>
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {numOfFav? numOfFav : null}
+                  </span>
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/AllOrders">
                   AllOrders
                 </Link>
@@ -72,6 +81,8 @@ function logoutFunction(){
              
             </ul> : ""}
            
+           
+
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center cstIcons ">
             <li className="nav-item position-relative">
                 <Link className="nav-link " to="/Cart">

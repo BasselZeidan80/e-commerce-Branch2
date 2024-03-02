@@ -18,6 +18,7 @@ import Payment from "./Components/Payment/Payment";
 import AllOrders from "./Components/AllOrders/AllOrders";
 import { ToastContainer, toast } from "react-toastify";
 import { useEffect } from "react";
+import Favorites from "./Components/Favorites/Favorites";
 
 function App() {
   const myQuery = new QueryClient();
@@ -39,6 +40,14 @@ function App() {
           element: (
             <Guard>
               <Cart />{" "}
+            </Guard>
+          ),
+        },
+        {
+          path: "Favorites",
+          element: (
+            <Guard>
+              <Favorites />
             </Guard>
           ),
         },
